@@ -4,7 +4,7 @@ O **ChemistryAnalystLake** é um método para **converter, acessar e estruturar 
 
 O método suporta:
 
-- **LC-MS (Thermo)** — arquivos `.raw`
+- **LCHR-MS (Thermo)** — arquivos `.raw`
 - **GC-MS (Agilent – modo SIM)** — pastas `.D`
 
 Todo o processamento é feito a partir de arquivos **mzML**, gerados com o **ProteoWizard (msconvert)**.
@@ -91,7 +91,7 @@ O script `process_data.py` executa todo o pipeline de ingestão.
 
 Ele identifica automaticamente o tipo de dado:
 
-- `.raw` → LC-MS  
+- `.raw` → LCHR-MS  
 - `.D` → GC-MS SIM  
 
 Converte os arquivos para mzML, lê os dados e insere cromatogramas e espectros no ClickHouse.
@@ -133,7 +133,7 @@ Cadastro das amostras.
 Representa os canais de aquisição por amostra.  
 Apenas um dos campos abaixo é preenchido:
 
-- `scan_filter` → LC-MS (scans e espectros)
+- `scan_filter` → LCHR-MS (scans e espectros)
 - `sim_ion_name` → GC-MS SIM ou cromatogramas LC-MS
 
 ### chromatogram_points
@@ -154,8 +154,8 @@ Em desenvolvimento.
 O script `view.py` será responsável por:
 
 - Listar amostras e canais
-- Visualizar cromatogramas (LC-MS e GC-MS SIM)
-- Visualizar espectros LC-MS
+- Visualizar cromatogramas (LCHR-MS e GC-MS SIM)
+- Visualizar espectros LCHR-MS
 - Gerar XIC por faixa de massa
 
 Execução prevista:
@@ -167,6 +167,6 @@ python view.py
 ## Observações finais
 
 - O caminho do `msconvert.exe` pode precisar ser ajustado no `process_data.py`
-- Arquivos LC-MS normalmente contêm **spectra e cromatogramas**, ambos são ingeridos
+- Arquivos LCHR-MS normalmente contêm **spectra e cromatogramas**, ambos são ingeridos
 - GC-MS SIM cria um canal por íon monitorado
 - O método foi projetado para **alto volume de dados**, utilizando compressão e índices do ClickHouse
