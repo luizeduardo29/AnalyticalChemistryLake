@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  clickhouse:
+    image: clickhouse/clickhouse-server:25.7.3.13
+    container_name: clickhouse
+    privileged: true
+    runtime: runc
+    network_mode: bridge
+    restart: always
+
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+
+    environment:
+      CLICKHOUSE_USER: user
+      CLICKHOUSE_PASSWORD: Default@2026
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: "1"
+      LANG: en_US.UTF-8
+      TZ: America/Sao_Paulo
+      CLICKHOUSE_CONFIG: /etc/clickhouse-server/config.xml
+
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+
+    labels:
+      com.clickhouse.build.version: "25.7.3.13"
+      org.opencontainers.image.ref.name: "ubuntu"
+      org.opencontainers.image.version: "22.04"
+
+volumes:
+  clickhouse_data:

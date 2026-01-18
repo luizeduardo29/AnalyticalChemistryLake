@@ -1,0 +1,7 @@
+numpy
+flask
+pyteomics
+clickhouse_connect
+lxml
+pandas
+plotly
