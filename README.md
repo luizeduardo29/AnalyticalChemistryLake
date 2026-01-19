@@ -1,4 +1,4 @@
- ![PPGI](img/ppgi-ufrj.png)
+ ![PPGI](ppgi-ufrj.png)
 
 # ChemistryAnalystLake
 
