@@ -1,6 +1,6 @@
  ![PPGI](ppgi-ufrj.png)
 
-# AnalysticalChemistryLake
+# AnalyticalChemistryLake
 
 O **ChemistryAnalystLake** é um método para **converter, acessar e estruturar dados de análises químicas** a partir de arquivos brutos, armazenando-os em um **Data Lake analítico baseado em ClickHouse**.
 
